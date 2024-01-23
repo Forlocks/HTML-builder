@@ -12,6 +12,16 @@ function copyDir() {
       });
     });
   });
+
+  fs.readdir(dirCopyName, (error, files) => {
+    files.forEach((item) => {
+      fs.access(path.join(dirName, item), (error) => {
+        if (error) {
+          fs.unlink(path.join(dirCopyName, item), () => {});
+        }
+      });
+    });
+  });
 }
 
 copyDir();
