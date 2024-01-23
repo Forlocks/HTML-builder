@@ -2,7 +2,7 @@ const fs = require('fs');
 
 const { stdout } = process;
 
-const readableStream = fs.createReadStream('text.txt', 'utf-8');
+const readableStream = fs.createReadStream('01-read-file/text.txt', 'utf-8');
 
 let data = '';
 

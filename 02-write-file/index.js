@@ -3,7 +3,7 @@ stdin.setEncoding('utf8');
 
 const fs = require('fs');
 
-const output = fs.createWriteStream('text.txt', 'utf-8');
+const output = fs.createWriteStream('02-write-file/text.txt', 'utf-8');
 
 stdout.write('Enter text\n');
 
@@ -15,6 +15,8 @@ stdin.on('data', (data) => {
 
   output.write(data);
 });
-stdin.on('end', () => {
+
+process.on('SIGINT', () => {
   stdout.write('Entry completed');
+  process.exit();
 });
